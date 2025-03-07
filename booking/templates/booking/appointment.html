@@ -14,6 +14,7 @@
     <h2 class="text-center mb-4">Book an Appointment</h2>
     <div class="card p-4 shadow">
         <form>
+            <strong><label style="color: red;" for="" class="form-label">{{doctor.op_date}}</label></strong>
             <div class="mb-3">
                 <label for="patientName" class="form-label">Doctor Name</label>
                 <input type="text" class="form-control" id="patientName" value="{{doctor.name}}" readonly>
@@ -27,8 +28,13 @@
                 <input type="tel" class="form-control" id="contactNumber" placeholder="Enter your contact number" required>
             </div>
             <div class="mb-3">
+                <label for="contactNumber" class="form-label">Choose a Day</label>
+                <input type="tel" class="form-control" id="contactNumber" placeholder="{{doctor.op_date}}" required>
+            </div>
+            <div class="mb-3">
                 <label for="tokenNumber" class="form-label">Token Number</label>
                 <select name="" id="">
+                    <option>select</option>
                     {% for token in tokens %}
                     <option>{{token.token_number}}</option>
                     {% endfor %}

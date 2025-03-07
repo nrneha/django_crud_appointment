@@ -13,6 +13,7 @@ class TeamofDoctors(models.Model):
 class Token(models.Model):
     doctor = models.ForeignKey(TeamofDoctors,on_delete=models.CASCADE)
     token_number = models.PositiveIntegerField()
+    op_day = models.CharField(max_length=50,null=True)
     is_booked = models.BooleanField(default=False)
 
     def __str__(self):
@@ -22,6 +23,7 @@ class Appointment(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE)
     contact_no = models.PositiveIntegerField(null=True)
     doctor = models.ForeignKey(TeamofDoctors,on_delete=models.CASCADE)
+    op_day = models.CharField(max_length=50,null=True)
     token = models.OneToOneField(Token,on_delete=models.CASCADE)
 
     def __str__(self):
