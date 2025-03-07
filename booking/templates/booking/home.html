@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Clinic official web page</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+
+<body style="background-color: ivory;">
+    <div style="text-align: center;background-color: rgb(255, 255, 255);">
+        <h1 style="color: rgb(136, 17, 17);">MODERN CLINIC</h1>
+        <H2 style="color: rgb(46, 46, 46);font-family:inherit;">Healing Hands, Compassionate Hearts.</H2>
+    </div>
+    {% block content %}
+
+    <div style="
+    background-color: rgb(219, 243, 255);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+">
+        <h3 style="
+        background: white;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+        max-width: 600px;
+        text-align: center;
+        font-family: Arial, sans-serif;
+        color: #333;
+        line-height: 1.6;
+    ">
+            At <strong>MODERN CLINIC</strong>, we are committed to providing compassionate,
+            high-quality healthcare tailored to your needs. Our expert team of doctors and medical professionals
+            is here to ensure you receive the best possible care in a comfortable and friendly environment.
+
+            Whether it’s routine check-ups, specialized treatments, or preventive care,
+            we are dedicated to keeping you and your family healthy. <br>
+            📍 <strong>Visit us today and experience healthcare with a heart!</strong>
+        </h3>
+    </div>
+
+
+    <div style="background-color: beige;text-align: center;">
+       <h1 style="color: darkblue;"><strong>Book Your Appointment with Our Specialized Doctors Today!</strong></h1>
+       <h3 style="color: rgb(0, 86, 88);">Choose from our team of expert specialists and receive personalized care tailored to your health needs. 
+        Schedule your appointment now for a healthier tomorrow!</h3>
+        <h3 style="color:rgb(226, 20, 106)"><strong>We take pride in offering a wide range of specialized medical services, including:</strong></h3><br><br>
+        
+        <div class="container mt-4">
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Doctor</th>
+                        <th>Specialty</th>
+                        <th>OP Date</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for doctor in  data %}
+                    <tr>
+                        <td>{{doctor.name}}</td>
+                        <td>{{doctor.specialization}}</td>
+                        <td>{{doctor.op_date}}</td>
+                        <td><a href="{% url 'appointment' doctor_id=doctor.id %}"><button class="btn btn-primary">Book Appointment</button></a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div><br><br>
+        
+        
+        
+        <h2 style="color: rgb(0, 183, 255);"><strong>Trust our experts to provide personalized, high-quality care for you and your family.</strong></h2>
+
+    </div><br>
+
+    <footer class="text-center py-3 bg-dark text-white">
+        &copy; 2025 MODERN CLINIC. All rights reserved.
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+{% endblock %}
+</body>
+
+</html>
