@@ -2,12 +2,13 @@ from django.shortcuts import render,redirect
 from . models import *
 from django.contrib import messages
 from django.shortcuts import render, redirect, get_object_or_404
+from django.contrib.auth.decorators import login_required
 
 def home(request):
     data = TeamofDoctors.objects.all
     return render(request,"booking/home.html",{'data':data})
 
-
+@login_required
 def appointment_page(request,doctor_id):
     doctor = TeamofDoctors.objects.get(id=doctor_id)
     print(doctor)
@@ -15,7 +16,7 @@ def appointment_page(request,doctor_id):
     return render(request,"booking/appointment.html",{'doctor':doctor,'tokens':tokens})
 
 
-
+@login_required
 def book_appointment(request):
     if request.method == "POST":
         doctor_id = request.POST.get("doctor_id")

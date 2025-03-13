@@ -46,7 +46,8 @@
    <!-- Navbar -->
    <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand" href="{% url 'home' %}">MyApp</a>
+        <!-- <a class="navbar-brand" href="{% url 'home' %}">MyApp</a> -->
+         <h6 style="color: #007bff;"><strong>MODERN CLINIC : Healing Hands, Compassionate Hearts.</strong></h6>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
             aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -55,8 +56,8 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <span class="nav-link welcome-text">Welcome, {{ user.username }}!</span>
+                    <li class="nav-item" style="margin-right: 150px;">
+                        <span class="nav-item welcome-text"><strong style="color:green ;">Welcome, {{ user.username }}!</strong></span>
                     </li>
                     <li class="nav-item">
                         <form method="post" action="{% url 'sign_out' %}" class="d-inline">
@@ -68,7 +69,7 @@
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'sign_in' %}">Sign In</a>
+                        <a class="nav-link" href="{% url 'users:sign_in' %}">Sign In</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'users:signup' %}">Sign Up</a>

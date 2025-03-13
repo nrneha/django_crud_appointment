@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-{% extends 'booking/home.html'%}
 {% block content %}
 <html lang="en">
 <head>
@@ -24,8 +23,11 @@
         <h2 class="text-center mb-3">Sign In</h2>
 
 
-        <form method="POST">
+        <form method="POST" action="{% url 'users:login' %}">
             {% csrf_token %}
+
+
+            <!-- <input type="hidden" name="next" value="/booking/home/"> -->
         
             <div class="mb-3">
                 <label for="id_username" class="form-label">Username</label>
