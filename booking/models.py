@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.db import models
 from django.contrib.auth.models import User
 
@@ -23,6 +24,7 @@ class Appointment(models.Model):
     contact_no = models.PositiveIntegerField(null=True)
     doctor = models.ForeignKey(TeamofDoctors,on_delete=models.CASCADE)
     token = models.OneToOneField(Token,on_delete=models.CASCADE)
+    booking_datetime = models.DateTimeField(default=timezone.now)
 
     def __str__(self):
         return f"{self.user.username} - {self.doctor.name} - {self.token.token_number}"

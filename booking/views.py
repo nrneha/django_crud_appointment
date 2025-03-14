@@ -50,3 +50,17 @@ def book_appointment(request):
     return render(request, "booking/appointment.html")
 
 
+def view_appointments(request):
+    appointments = Appointment.objects.filter(user=request.user)
+    return render(request,"booking/my_appointments.html",{'appointments':appointments})
+
+def cancel_appointment(request,doctor_id,token_no):
+    token = Token.objects.get(doctor_id=doctor_id, token_number=token_no)
+    token.is_booked=False
+    token.save()
+
+    appointment = Appointment.objects.get(doctor=doctor_id)
+    appointment.delete()
+    messages.success(request, "Booking Cancelled, Thank you!")
+    return redirect("my_appointments")
+
