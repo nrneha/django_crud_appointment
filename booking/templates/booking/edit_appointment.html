@@ -18,7 +18,7 @@
     </div>
     {% endif %}
     <div class="card p-4 shadow">
-        <form method="post" action="#">
+        <form method="post" action="{% url 'save_changes' old_token=appointment.token.token_number %}">
             {% csrf_token %}
             <strong><label style="color: red;" for="" class="form-label">{{doctor.op_date}}</label></strong>
             <div class="mb-3">
@@ -39,11 +39,11 @@
                 <select name="token_id">
                     <option>{{appointment.token.token_number}}</option>
                     {% for token in tokens %}
-                    <option value="{{token.token_number}}">{{token.token_number}}</option>
+                    <option>{{token.token_number}}</option>
                     {% endfor %}
                 </select>
             </div>
-            <button type="submit" class="btn btn-primary w-100">Edit Appointment</button>
+            <button type="submit" class="btn btn-primary w-100">Save Changes</button>
         </form>
     </div>
 </div>

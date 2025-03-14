@@ -58,7 +58,7 @@
             <ul class="navbar-nav ms-auto">
                 {% if user.is_authenticated %}
                     <li class="nav-item" style="margin-right: 150px;">
-                        <span class="nav-item welcome-text"><strong style="color:green ;">Welcome, {{ user.username }}!</strong></span>
+                        <span class="nav-item welcome-text"><strong style="color:green ;">Welcome, {{ user.username | upper}}!</strong></span>
                     </li>
                     <li class="nav-item">
                         <form method="post" action="{% url 'sign_out' %}" class="d-inline">
@@ -124,7 +124,9 @@
        <h3 style="color: rgb(0, 86, 88);">Choose from our team of expert specialists and receive personalized care tailored to your health needs. 
         Schedule your appointment now for a healthier tomorrow!</h3>
         <h3 style="color:rgb(226, 20, 106)"><strong>We take pride in offering a wide range of specialized medical services, including:</strong></h3><br><br>
-        
+        <p style="color: red;">📢 Important Notice:
+            ✅ You can book appointments only for the current week. Upcoming weeks are not available for booking.
+            📞 Please contact the clinic before your visit, as schedules may change. The clinic will reach out to confirm your consultation date.</p>
         <div class="container mt-4">
             <table class="table table-bordered table-striped">
                 <thead class="table-dark">

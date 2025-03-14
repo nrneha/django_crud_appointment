@@ -9,5 +9,6 @@ urlpatterns = [
     path('book_appointment/',views.book_appointment,name="book_appointment"),
     path('my_appointments/',views.view_appointments,name="my_appointments"),
     path('cancel_appointment/<int:doctor_id>/<token_no>',views.cancel_appointment,name="cancel_appointment"),
-    path('edit_appointment/<int:doctor_id>/<token_no>',views.edit_appointment,name="edit_appointment")
+    path('edit_appointment/<int:doctor_id>/<token_no>',views.edit_appointment,name="edit_appointment"),
+    path('save_changes/<int:old_token>',views.save_changes,name="save_changes")
 ]
