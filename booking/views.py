@@ -64,3 +64,10 @@ def cancel_appointment(request,doctor_id,token_no):
     messages.success(request, "Booking Cancelled, Thank you!")
     return redirect("my_appointments")
 
+def edit_appointment(request,doctor_id,token_no):
+    doctor = TeamofDoctors.objects.get(id=doctor_id)
+    tokens = Token.objects.filter(doctor_id=doctor_id,is_booked=False)
+    appointment = Appointment.objects.get(doctor=doctor_id)
+    return render(request,"booking/edit_appointment.html",{'doctor':doctor,'tokens':tokens,'appointment':appointment})
+
+

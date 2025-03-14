@@ -38,7 +38,7 @@
                             <p><strong>OP for:</strong> {{ appointment.doctor.op_date}}</p>
                             <p><strong>Token Number:</strong> {{ appointment.token.token_number }}</p>
                             <p><strong>Appointment Booked On: </strong>{{ appointment.booking_datetime|date:"D, M d, Y - h:i A" }}</p>
-                            <button class="btn btn-primary">Edit Appointment</button>
+                            <a href="{% url 'edit_appointment' appointment.doctor.id appointment.token.token_number %}"><button class="btn btn-primary">Edit Appointment</button></a>
                            <a href="{% url 'cancel_appointment' appointment.doctor.id appointment.token.token_number %}"><button class="btn btn-danger">Cancel Appointment</button></a> 
 
                         </div>
